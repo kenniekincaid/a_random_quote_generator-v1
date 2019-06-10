@@ -1,9 +1,3 @@
-//This function changes the quotes every 20 seconds in sync with the color background change
-document.getElementById('loadQuote').addEventListener("click", printQuote, true);
-var intervalID = window.setInterval(myCallback, 20000);
-function myCallback() {
-  printQuote();
-}
 //I am shooting for an 'Exceeds Expectations' gradew with this submission.
 
 //An indexed array of quotes and other objects that will later be referenced at random and/or conditionally...
