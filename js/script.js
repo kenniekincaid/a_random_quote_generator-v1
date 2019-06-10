@@ -1,6 +1,10 @@
+//This function changes the quotes every 20 seconds in sync with the color background change
+document.getElementById('loadQuote').addEventListener("click", printQuote, true);
+var intervalID = window.setInterval(myCallback, 20000);
+function myCallback() {
+  printQuote();
+}
 //I am shooting for an 'Exceeds Expectations' gradew with this submission.
-
-alert("Hello! You are special and the sky is the limit! May these quotes bring light to your day.");
 
 //An indexed array of quotes and other objects that will later be referenced at random and/or conditionally...
 var quotes = [
@@ -11,7 +15,7 @@ var quotes = [
   {
     quote: "What You Do Speaks So Loudly that I Cannot Hear What You Say.",
     source: "Ralph Waldo Emerson",
-    citation: "- Essays [First Series] by Ralph Waldo Emerson",
+    citation: "Essays [First Series] by Ralph Waldo Emerson",
     year: 1841
   },
   {
@@ -41,7 +45,8 @@ var quotes = [
   {
     quote: "Delight thyself in the Lord: and He shall give thee the desires of thine heart. Commit thy way unto the LORD; trust also in Him, and He shall bring it to pass.",
     source: "Psalm 37:4-5",
-    dailyverse: "Cick for Bible verse of the day! https://www.amazingfacts.org/bible-study/verse-of-the-day",
+    dailyverse: "Click for Bible verse of the day!",
+    dailyverseURL: "https://www.amazingfacts.org/bible-study/verse-of-the-day",
   },
   {
     quote: "The flower that blooms in adversity is the rarest and most beautiful of all.",
@@ -60,15 +65,15 @@ function getRandomQuote(quotes)
 function printQuote() {//quotes will appear on the page
   var HTMLString = "";
   var randomQuote = getRandomQuote(quotes);
-    HTMLString += "<p class='quote'>" + randomQuote.quote + "</p>"; //the quote will appear first
-    HTMLString += "<p class='source'>" + randomQuote.source + "</p>"; //the source will appear afterwards
-if (randomQuote.citation) { //The citation will appear if it's true.
-    HTMLString += "<span class='citation'>" + randomQuote.citation + "</span>";
+    HTMLString += "<p class='quote'>" + randomQuote.quote + "</p>"; //A random quote will be returned.
+    HTMLString += "<p class='source'>" + randomQuote.source + "</p>";//The source attached to the returned court will be returned.
+if (randomQuote.citation || randomQuote.year) { //The citation and year will both appear together.
+    HTMLString += "<span class='citation'>" + randomQuote.citation + ", " + randomQuote.year + "." + "</span>";
 }
-if (randomQuote.year) { //The year will appear if it's true.
-    HTMLString += "<span class='year'>" + randomQuote.year + "</span>";
+if (randomQuote.dailyverse) { //The daily verse will appear if it's true.
+    HTMLString += "<span class='dailyverse'>" + randomQuote.dailyverse + "</span>";
 }
-document.getElementById('quote-box').innerHTML = HTMLString; //
+document.getElementById('quote-box').innerHTML = HTMLString; //This returns the quote box element.
 }
 printQuote(); //Executes appearance of quotes to page.
 //console.log(printQuote);
@@ -90,4 +95,3 @@ var intervalID = window.setInterval(myCallback, 20000);
 function myCallback() {
   printQuote();
 }
-intervalID(window.setInterval(myCallack, 20000));

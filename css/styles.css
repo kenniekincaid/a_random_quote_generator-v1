@@ -59,6 +59,10 @@ body {
 
 .citation {
   font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-align: right;
+  margin-right: 4em;
 }
 
 .citation:before {
