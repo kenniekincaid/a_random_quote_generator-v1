@@ -71,7 +71,7 @@ body {
 }
 
 .year:before {
-  content: ", ";
+  content: "";
   font-style: normal;
 }
 
