@@ -62,7 +62,7 @@ body {
   font-size: 1rem;
   letter-spacing: 0.05em;
   text-align: right;
-  margin-right: 4em;
+  margin-right: 0.10em;
 }
 
 .citation:before {
@@ -71,7 +71,6 @@ body {
 }
 
 .year:before {
-  content: "";
   font-style: normal;
 }
 
