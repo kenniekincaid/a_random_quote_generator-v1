@@ -1,7 +1,6 @@
 //I am shooting for an 'Exceeds Expectations' grade with this submission.
 
-//An indexed array of quotes and properties that will be referenced at random or conditionally.
-var quotes = [
+var quotes = [ //An indexed array of quotes and properties that will be referenced at random or conditionally.
   {
     quote: "Our heavenly Father has a thousand ways to provide for us, of which we know nothing.",
     source: "Ellen White"
@@ -39,8 +38,8 @@ var quotes = [
   {
     quote: "Delight thyself in the Lord: and He shall give thee the desires of thine heart. Commit thy way unto the LORD; trust also in Him, and He shall bring it to pass.",
     source: "Psalm 37:4-5",
-    scripture: "Click here for daily scripture!", //For use in my tag.
-    link: "https://www.amazingfacts.org/bible-study/verse-of-the-day" //Link that I will use for my tag.
+    scripture: "Click here for daily scripture!", //Property for extra credit tag.
+    link: "https://www.amazingfacts.org/bible-study/verse-of-the-day" //Property for extra credit tag.
   },
   {
     quote: "The flower that blooms in adversity is the rarest and most beautiful of all.",
@@ -48,8 +47,7 @@ var quotes = [
   }
 ];
 
-//pulls quotes at random
-function getRandomQuote(quotes) // the 'quotes' variable is contained in the function called 'getRandomQuote'.
+function getRandomQuote(quotes) //Pulls a random quote with  this function
  {
   var quoteIndex = Math.floor(Math.random() * quotes.length);  // quotes.length is the value assigned to quoteIndex along with parameters.
   return quotes[quoteIndex]; //returns quotes from my index of quotes.
@@ -77,11 +75,11 @@ function printQuote() {//quotes will appear on the page
   HTMLString += "</p>"; //Closes the HTMLString source string.
   document.getElementById('quote-box').innerHTML = HTMLString; //The value of the HTMLString variables will appear on the document.
 }
-printQuote(); //This actiong calls the random quotes and any applicable attached source, citation, year, and/or link to appear on the page.
+printQuote(); //Calls random quotes and their applicable sources, citation(s), year(s), and/or link(s) to show on web page.
 //console.log(printQuote);
 
 //Creates the random color hex and sets the interval to a certain number of seconds.
-function getRandomColor() {
+function getRandomColor() {//created function to be able to use
   var randomColor = Math.floor(Math.random()*16777215).toString(16); //creates a random color hex under randomColor variable.
   document.body.style.backgroundColor = "#"+randomColor; //changes the background to a random color
 }
@@ -93,7 +91,6 @@ var intervalID = window.setInterval(myCallback, 20000); //function within variab
 function myCallback() {
   printQuote();
 }
-
 //This codes will continue to loop as long as this remains false or as the page is reloaded with a click.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 document.getElementById('loadQuote').addEventListener("click", getRandomColor, false);
