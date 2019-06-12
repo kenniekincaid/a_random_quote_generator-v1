@@ -81,20 +81,19 @@ printQuote(); //This actiong calls the random quotes and any applicable attached
 //console.log(printQuote);
 
 //Creates the random color hex and sets the interval to a certain number of seconds.
-setInterval( //function that runs random colors from the color hex
-  function () {
-    var randomColor = Math.floor(Math.random()*16777215).toString(16); //creates a random color hex under randomColor variable.
-    document.body.style.backgroundColor = "#"+randomColor; //changes the background to a random color
-}, 20000); //The number of seconds between random color changes (one second per 1000 milliseconds = 20 seconds).
+function getRandomColor() {
+  var randomColor = Math.floor(Math.random()*16777215).toString(16); //creates a random color hex under randomColor variable.
+  document.body.style.backgroundColor = "#"+randomColor; //changes the background to a random color
+}
+setInterval(getRandomColor, 20000); //The number of seconds between random color changes (one second per 1000 milliseconds = 20 seconds).
 //reference for the above codes is https://www.codespeedy.com/how-to-change-background-color-every-seconds-in-javascript/
 
 //This function changes the quotes every 20 seconds in sync with the color background change
-document.getElementById('loadQuote').addEventListener("click", printQuote, true); //Document will print quote to page every 20 seconds.
-var intervalID = window.setInterval(myCallback, 20000);
+var intervalID = window.setInterval(myCallback, 20000); //function within variable to get print a new quot
 function myCallback() {
   printQuote();
 }
-intervalID(); //calls into action the change of quotes every 20 seconds.
 
 //This codes will continue to loop as long as this remains false or as the page is reloaded with a click.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", getRandomColor, false);
